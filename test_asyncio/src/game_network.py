@@ -1,5 +1,7 @@
 import asyncio
 
+from socket import TCP_NODELAY, IPPROTO_TCP
+
 from . import util
 
 
@@ -50,6 +52,9 @@ class TCPServerConnection(asyncio.Protocol):
     def connection_made(self, transport):
         self.conn_id = ConnID.get_next_id()
         self.transport = transport
+        sock = self.transport.get_extra_info('socket')
+        sock.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1)
+
         Conns.add_conn(self.conn_id, self)
         print('{}, connection_made, {}'.format(util.get_datetime_str(), self.conn_id))
 
@@ -70,6 +75,8 @@ class TCPClientConnection(asyncio.Protocol):
 
     def connection_made(self, transport):
         self.transport = transport
+        sock = self.transport.get_extra_info('socket')
+        sock.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1)
         Conns.add_conn(self.user_id, self)
         print('{}, connection_made, {}'.format(util.get_datetime_str(), self.user_id))
 
