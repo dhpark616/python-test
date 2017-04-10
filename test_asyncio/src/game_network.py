@@ -1,8 +1,7 @@
 import asyncio
-
 from socket import TCP_NODELAY, IPPROTO_TCP
 
-from . import util
+from .util import time_util
 
 
 class ConnID:
@@ -32,7 +31,7 @@ class Conns:
             try:
                 Conns.__conns[conn_id].transport.write(msg)
             except Exception as err:
-                print('{}, send exception, {}, {}'.format(util.get_datetime_str(), conn_id, err))
+                print('{}, send exception, {}, {}'.format(time_util.local_str(), conn_id, err))
 
     @staticmethod
     def send_all(msg):
@@ -40,7 +39,7 @@ class Conns:
             try:
                 v.transport.write(msg)
             except Exception as err:
-                print('{}, send_all exception, {}, {}'.format(util.get_datetime_str(), k, err))
+                print('{}, send_all exception, {}, {}'.format(time_util.local_str(), k, err))
 
 
 class TCPServerConnection(asyncio.Protocol):
@@ -56,15 +55,15 @@ class TCPServerConnection(asyncio.Protocol):
         sock.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1)
 
         Conns.add_conn(self.conn_id, self)
-        print('{}, connection_made, {}'.format(util.get_datetime_str(), self.conn_id))
+        print('{}, connection_made, {}'.format(time_util.local_str(), self.conn_id))
 
     def data_received(self, data):
-        print('{}, data_received, {}, {}'.format(util.get_datetime_str(), self.conn_id, data.decode()))
+        print('{}, data_received, {}, {}'.format(time_util.local_str(), self.conn_id, data.decode()))
         self.transport.write(data)
 
     def connection_lost(self, exc):
         Conns.del_conn(self.conn_id)
-        print('{}, connection_lost, {}, {}'.format(util.get_datetime_str(), self.conn_id, exc if exc else 'None'))
+        print('{}, connection_lost, {}, {}'.format(time_util.local_str(), self.conn_id, exc if exc else 'None'))
 
 
 class TCPClientConnection(asyncio.Protocol):
@@ -78,14 +77,14 @@ class TCPClientConnection(asyncio.Protocol):
         sock = self.transport.get_extra_info('socket')
         sock.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1)
         Conns.add_conn(self.user_id, self)
-        print('{}, connection_made, {}'.format(util.get_datetime_str(), self.user_id))
+        print('{}, connection_made, {}'.format(time_util.local_str(), self.user_id))
 
     def data_received(self, data):
-        print('{}, data_received, {}, {}'.format(util.get_datetime_str(), self.user_id, data.decode()))
+        print('{}, data_received, {}, {}'.format(time_util.local_str(), self.user_id, data.decode()))
 
     def connection_lost(self, exc):
         Conns.del_conn(self.user_id)
-        print('{}, connection_lost, {}, {}'.format(util.get_datetime_str(), self.user_id, exc if exc else 'None'))
+        print('{}, connection_lost, {}, {}'.format(time_util.local_str(), self.user_id, exc if exc else 'None'))
 
 
 def send_hello():
