@@ -1,0 +1,10 @@
+syntax = "proto3";
+package msg;
+
+enum platform_type
+{
+    none = 0;
+    guest = 1;
+    direct = 2;
+    toy = 3;
+}

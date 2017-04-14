@@ -1,0 +1,8 @@
+syntax = "proto3";
+package msg;
+
+enum err_type
+{
+    err_none = 0;           // 성공
+    err_unknown = 10000;    // 알수없는 에러.(예외처리)
+}

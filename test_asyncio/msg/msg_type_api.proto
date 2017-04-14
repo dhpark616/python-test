@@ -1,0 +1,22 @@
+syntax = "proto3";
+package msg;
+
+// 10000
+enum type_api
+{
+    none = 0;
+// 11 : system
+    t_login_req = 11101;    // 로그인(없으면 생성)
+    t_login_ack = 11102;
+
+// 12 : lobby
+    t_get_char_list_req = 11201;
+    t_get_char_list_ack = 11202;
+    t_create_char_req = 11203;
+    t_create_char_ack = 11204;
+    t_delete_char_req = 11205;
+    t_delete_char_ack = 11206;
+    t_select_char_req = 11207;
+    t_select_char_ack = 11208;
+
+}

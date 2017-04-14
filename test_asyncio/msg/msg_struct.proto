@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "msg_enum.proto";
+package msg;
+
+message char_info
+{
+    int64 char_idx = 1;
+    string char_name = 2;
+    int32 char_mid = 3;
+}

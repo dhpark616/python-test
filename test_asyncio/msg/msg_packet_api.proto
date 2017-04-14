@@ -1,0 +1,73 @@
+syntax = "proto3";
+import "msg_enum.proto";
+import "msg_error.proto";
+import "msg_struct.proto";
+package msg;
+
+// base
+message req_packet
+{
+    string auth_token = 1;
+    int64 char_id = 2;
+    bytes msg = 3;
+}
+
+message ack_packet
+{
+    err_type err_code = 1;
+    bytes msg = 2;
+}
+
+// system
+message login_req
+{
+    string user_id = 1;
+    string password = 2;
+    platform_type plat_type = 3;
+}
+
+message login_ack
+{
+    string auth_token = 1;
+}
+
+// lobby
+message get_char_list_req
+{
+}
+
+message get_char_list_ack
+{
+    repeated char_info char_list = 1;
+}
+
+message create_char_req
+{
+    string char_name = 1;
+    int32 char_mid = 2;
+}
+
+message create_char_ack
+{
+    char_info char = 1;
+    string auth_token = 2;
+}
+
+message delete_char_req
+{
+    int64 char_idx = 1;
+}
+
+message delete_char_ack
+{
+    string auth_token = 1;
+}
+
+message select_char_req
+{
+    int64 char_idx = 1;
+}
+
+message select_char_ack
+{
+}
