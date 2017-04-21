@@ -36,7 +36,5 @@ def local_str():
     return local_datetime().strftime('%Y-%m-%d %H:%M:%S.%f')
 
 
-def local_timetuple():
+def local_timetuple(_=None):
     return local_datetime().timetuple()
-
-

@@ -24,11 +24,16 @@ namespace Msg {
           string.Concat(
             "ChBtc2dfc3RydWN0LnByb3RvEgNtc2caDm1zZ19lbnVtLnByb3RvIkIKCWNo",
             "YXJfaW5mbxIQCghjaGFyX2lkeBgBIAEoAxIRCgljaGFyX25hbWUYAiABKAkS",
-            "EAoIY2hhcl9taWQYAyABKAViBnByb3RvMw=="));
+            "EAoIY2hhcl9taWQYAyABKAUiNQoHdmVjM2FuZxIJCgF4GAEgASgCEgkKAXkY",
+            "AiABKAISCQoBehgDIAEoAhIJCgFhGAQgASgCIlEKC3BsYXllcl9pbmZvEhAK",
+            "CGNvbm5faWR4GAEgASgDEhAKCGNoYXJfaWR4GAIgASgDEh4KCGN1cnJfcG9z",
+            "GAMgASgLMgwubXNnLnZlYzNhbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Msg.MsgEnumReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Msg.char_info), global::Msg.char_info.Parser, new[]{ "CharIdx", "CharName", "CharMid" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Msg.char_info), global::Msg.char_info.Parser, new[]{ "CharIdx", "CharName", "CharMid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Msg.vec3ang), global::Msg.vec3ang.Parser, new[]{ "X", "Y", "Z", "A" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Msg.player_info), global::Msg.player_info.Parser, new[]{ "ConnIdx", "CharIdx", "CurrPos" }, null, null, null)
           }));
     }
     #endregion
@@ -200,6 +205,386 @@ namespace Msg {
           }
           case 24: {
             CharMid = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class vec3ang : pb::IMessage<vec3ang> {
+    private static readonly pb::MessageParser<vec3ang> _parser = new pb::MessageParser<vec3ang>(() => new vec3ang());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<vec3ang> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Msg.MsgStructReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public vec3ang() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public vec3ang(vec3ang other) : this() {
+      x_ = other.x_;
+      y_ = other.y_;
+      z_ = other.z_;
+      a_ = other.a_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public vec3ang Clone() {
+      return new vec3ang(this);
+    }
+
+    /// <summary>Field number for the "x" field.</summary>
+    public const int XFieldNumber = 1;
+    private float x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float X {
+      get { return x_; }
+      set {
+        x_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "y" field.</summary>
+    public const int YFieldNumber = 2;
+    private float y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Y {
+      get { return y_; }
+      set {
+        y_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "z" field.</summary>
+    public const int ZFieldNumber = 3;
+    private float z_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Z {
+      get { return z_; }
+      set {
+        z_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "a" field.</summary>
+    public const int AFieldNumber = 4;
+    private float a_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float A {
+      get { return a_; }
+      set {
+        a_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as vec3ang);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(vec3ang other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (X != other.X) return false;
+      if (Y != other.Y) return false;
+      if (Z != other.Z) return false;
+      if (A != other.A) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (X != 0F) hash ^= X.GetHashCode();
+      if (Y != 0F) hash ^= Y.GetHashCode();
+      if (Z != 0F) hash ^= Z.GetHashCode();
+      if (A != 0F) hash ^= A.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (X != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(X);
+      }
+      if (Y != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Y);
+      }
+      if (Z != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Z);
+      }
+      if (A != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(A);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (X != 0F) {
+        size += 1 + 4;
+      }
+      if (Y != 0F) {
+        size += 1 + 4;
+      }
+      if (Z != 0F) {
+        size += 1 + 4;
+      }
+      if (A != 0F) {
+        size += 1 + 4;
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(vec3ang other) {
+      if (other == null) {
+        return;
+      }
+      if (other.X != 0F) {
+        X = other.X;
+      }
+      if (other.Y != 0F) {
+        Y = other.Y;
+      }
+      if (other.Z != 0F) {
+        Z = other.Z;
+      }
+      if (other.A != 0F) {
+        A = other.A;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 13: {
+            X = input.ReadFloat();
+            break;
+          }
+          case 21: {
+            Y = input.ReadFloat();
+            break;
+          }
+          case 29: {
+            Z = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            A = input.ReadFloat();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class player_info : pb::IMessage<player_info> {
+    private static readonly pb::MessageParser<player_info> _parser = new pb::MessageParser<player_info>(() => new player_info());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<player_info> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Msg.MsgStructReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public player_info() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public player_info(player_info other) : this() {
+      connIdx_ = other.connIdx_;
+      charIdx_ = other.charIdx_;
+      CurrPos = other.currPos_ != null ? other.CurrPos.Clone() : null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public player_info Clone() {
+      return new player_info(this);
+    }
+
+    /// <summary>Field number for the "conn_idx" field.</summary>
+    public const int ConnIdxFieldNumber = 1;
+    private long connIdx_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ConnIdx {
+      get { return connIdx_; }
+      set {
+        connIdx_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "char_idx" field.</summary>
+    public const int CharIdxFieldNumber = 2;
+    private long charIdx_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long CharIdx {
+      get { return charIdx_; }
+      set {
+        charIdx_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "curr_pos" field.</summary>
+    public const int CurrPosFieldNumber = 3;
+    private global::Msg.vec3ang currPos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Msg.vec3ang CurrPos {
+      get { return currPos_; }
+      set {
+        currPos_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as player_info);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(player_info other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ConnIdx != other.ConnIdx) return false;
+      if (CharIdx != other.CharIdx) return false;
+      if (!object.Equals(CurrPos, other.CurrPos)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ConnIdx != 0L) hash ^= ConnIdx.GetHashCode();
+      if (CharIdx != 0L) hash ^= CharIdx.GetHashCode();
+      if (currPos_ != null) hash ^= CurrPos.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ConnIdx != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(ConnIdx);
+      }
+      if (CharIdx != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(CharIdx);
+      }
+      if (currPos_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(CurrPos);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ConnIdx != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ConnIdx);
+      }
+      if (CharIdx != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CharIdx);
+      }
+      if (currPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurrPos);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(player_info other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ConnIdx != 0L) {
+        ConnIdx = other.ConnIdx;
+      }
+      if (other.CharIdx != 0L) {
+        CharIdx = other.CharIdx;
+      }
+      if (other.currPos_ != null) {
+        if (currPos_ == null) {
+          currPos_ = new global::Msg.vec3ang();
+        }
+        CurrPos.MergeFrom(other.CurrPos);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            ConnIdx = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            CharIdx = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            if (currPos_ == null) {
+              currPos_ = new global::Msg.vec3ang();
+            }
+            input.ReadMessage(currPos_);
             break;
           }
         }

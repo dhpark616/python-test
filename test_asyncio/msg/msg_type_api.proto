@@ -5,7 +5,7 @@ package msg;
 enum type_api
 {
     none = 0;
-// 11 : system
+// 11 : base
     t_login_req = 11101;    // 로그인(없으면 생성)
     t_login_ack = 11102;
 

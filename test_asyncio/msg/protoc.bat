@@ -13,6 +13,10 @@ color 04
 protoc.exe --python_out=..\src\msg msg_type_api.proto
 color 05
 protoc.exe --python_out=..\src\msg msg_packet_api.proto
+color 06
+protoc.exe --python_out=..\src\msg msg_type_ch.proto
+color 07
+protoc.exe --python_out=..\src\msg msg_packet_ch.proto
 
 color 01
 protoc.exe --csharp_out=.\cs_files msg_enum.proto
@@ -24,11 +28,17 @@ color 04
 protoc.exe --csharp_out=.\cs_files msg_type_api.proto
 color 05
 protoc.exe --csharp_out=.\cs_files msg_packet_api.proto
+color 06
+protoc.exe --csharp_out=.\cs_files msg_type_ch.proto
+color 07
+protoc.exe --csharp_out=.\cs_files msg_packet_ch.proto
 
 color 03
 python fix_import.py ..\src\msg\msg_struct_pb2.py
 color 05
 python fix_import.py ..\src\msg\msg_packet_api_pb2.py
+color 07
+python fix_import.py ..\src\msg\msg_packet_ch_pb2.py
 
 echo.
 echo done.

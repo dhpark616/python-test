@@ -1,0 +1,16 @@
+syntax = "proto3";
+package msg;
+
+// 20000
+enum type_ch
+{
+    none = 0;
+// 21 : base
+    t_load_char_req = 21101;    // 인증 및 player생성
+    t_load_char_ack = 21102;
+
+// 22 : area
+    t_enter_area_req = 21201;
+    t_enter_area_ack = 21202;
+
+}

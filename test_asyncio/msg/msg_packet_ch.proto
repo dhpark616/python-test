@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "msg_enum.proto";
+import "msg_error.proto";
+import "msg_struct.proto";
+package msg;
+
+
+// base
+message load_char_req
+{
+    string auth_token = 1;
+    int64 char_idx = 2;
+}
+
+message load_char_ack
+{
+    err_type err_code = 1;
+    int64 conn_idx = 2;
+}
+
+// area
+message enter_area_req
+{
+    int32 dungeon_mid = 1;
+    vec3ang start_pos = 2;
+}
+
+message enter_area_ack
+{
+    err_type err_code = 1;
+    repeated player_info other_player_list = 2;
+}
+
+message in_sight_isg
+{
+    player_info player = 1;
+}
+
+message out_sight_isg
+{
+    int64 conn_idx = 1;
+}

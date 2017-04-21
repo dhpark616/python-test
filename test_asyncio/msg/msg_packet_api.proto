@@ -18,7 +18,6 @@ message ack_packet
     bytes msg = 2;
 }
 
-// system
 message login_req
 {
     string user_id = 1;

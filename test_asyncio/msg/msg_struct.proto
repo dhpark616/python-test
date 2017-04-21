@@ -8,3 +8,19 @@ message char_info
     string char_name = 2;
     int32 char_mid = 3;
 }
+
+message vec3ang
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+    float a = 4;
+}
+
+message player_info
+{
+    int64 conn_idx = 1;
+    int64 char_idx = 2;
+    vec3ang curr_pos = 3;
+}
+
